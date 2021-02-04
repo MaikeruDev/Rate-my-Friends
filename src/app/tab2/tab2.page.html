@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title color="primary" class="ion-text-center">
+      Friends
+    </ion-title>
+    <ion-button (click)="openModal()" class="loginBtn" ><ion-icon name="person-add-outline" slot="icon-only"></ion-icon></ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let reqFriend of reqFriends">
+      <ion-text (click)="friendModal(reqFriend.data().name, reqFriend.data().id, reqFriend.id)" class="friendName"><span class="nameColor">{{ reqFriend.data().name }}</span>#{{ reqFriend.data().id }}</ion-text>
+      <ion-button (click)="acceptFriend(reqFriend)" color="success" fill="outline" class="acceptBtn"><ion-icon name="checkmark-outline"></ion-icon></ion-button>
+      <ion-button (click)="removeFriend(reqFriend)" color="danger" fill="outline" class="declineBtn"><ion-icon name="close-outline"></ion-icon></ion-button>
+    </ion-item>
+    <ion-item *ngFor="let sentFriend of sentFriends">
+      <ion-text (click)="friendModal(sentFriend.data().name, sentFriend.data().id, sentFriend.id)" class="friendName"><span class="nameColor">{{ sentFriend.data().name }}</span>#{{ sentFriend.data().id }}</ion-text>
+      <ion-button color="medium" (click)="presentAlert(sentFriend.data().name)" fill="outline" class="removeBtn"><ion-icon name="time-outline"></ion-icon></ion-button>
+    </ion-item>
+    <ion-item *ngFor="let safeFriend of safeFriends">
+      <ion-text (click)="friendModal(safeFriend.data().name, safeFriend.data().id, safeFriend.id)" class="friendName"><span class="nameColor">{{ safeFriend.data().name }}</span>#{{ safeFriend.data().id }}</ion-text>
+      <ion-button (click)="removeFriend(safeFriend)" color="danger" fill="outline" class="removeBtn"><ion-icon name="person-remove-outline"></ion-icon></ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

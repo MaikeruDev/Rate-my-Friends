@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons class="backBtn" slot="start">
+      <ion-button color="light" (click)="closeModal()">
+          <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+  </ion-buttons>
+    <ion-title class="ion-text-center" color="primary">
+      Rate {{ friendName }}#{{ friendId }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-item>
+      <ion-label>Rating in numbers</ion-label>
+      <ion-select value="5" okText="Okay" cancelText="Dismiss" [(ngModel)]="rating">
+        <ion-select-option type="number" value="5">5</ion-select-option>
+        <ion-select-option type="number" value="4">4</ion-select-option>
+        <ion-select-option type="number" value="3">3</ion-select-option>
+        <ion-select-option type="number" value="2">2</ion-select-option>
+        <ion-select-option type="number" value="1">1</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <ion-textarea rows="8" placeholder="Enter your rating message here..." [(ngModel)]="message"></ion-textarea>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+    <ion-list>
+      <ion-item>
+        <ion-label>Show as anonymous</ion-label>
+        <ion-checkbox slot="end" [(ngModel)]="anonMessage"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+  <ion-card>
+    <ion-button (click)="sendRating()" style="width: 100%">Send Rating</ion-button>
+  </ion-card>
+</ion-content>

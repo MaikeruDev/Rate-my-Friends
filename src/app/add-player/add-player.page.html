@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-button color="light" (click)="closeModal()">
+              <ion-icon name="arrow-back"></ion-icon>
+          </ion-button>
+      </ion-buttons>
+      <ion-title color="light">Add a friend</ion-title> 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="stacked">Username + Tag</ion-label>
+    <ion-input placeholder="JohnDoe#1234" name="input" [(ngModel)]="input"></ion-input>
+  </ion-item>
+  <ion-button (click)="addPlayer()" >Add</ion-button>
+</ion-content>

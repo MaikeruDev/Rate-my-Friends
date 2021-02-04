@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center" color="primary">
+      Your Profile
+    </ion-title>
+    <ion-button (click)="openSettings()" class="loginBtn" ><ion-icon name="settings-outline" slot="icon-only"></ion-icon></ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-avatar>
+      <img src="{{ profilePic }}">
+    </ion-avatar>
+    <ion-title class="ion-text-center username">{{ username }}#{{ id }}</ion-title>
+    <ion-card>
+      <ion-title class="statsTitle">Statistics</ion-title>
+      <ion-item>
+        <ion-text class="rating">Avg. Rating:</ion-text>
+        <ion-text class="rating" id="ratingNumbers"> <span id="userRating">{{ ratingAvgFinal | number : '1.2-2'}}</span> / 5</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-text class="rating">Friends:</ion-text>
+        <ion-text class="rating" id="ratingNumbers"> <span id="userRating">{{ size }}</span></ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-text class="rating">Joined:</ion-text>
+        <ion-text class="rating" id="ratingNumbers"><span id="userRating">{{joined | date:'mediumDate'}}</span></ion-text>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-title class="statsTitle">Ratings</ion-title>
+      <span *ngFor="let rating of ratings" (click)="friendModal(rating.data().name, rating.data().id, rating.id)">
+        <ion-item lines="none">
+          <ion-text class="rating ratingName" *ngIf="rating.data().anon == false">{{ rating.data().name }}#{{ rating.data().id }}:</ion-text>
+          <ion-text class="rating ratingName" *ngIf="rating.data().anon == true">Anonymous:</ion-text>
+          <ion-text class="rating" id="ratingNumbers"> <span id="userRating">{{ rating.data().rated | number : '1.2-2'}}</span> / 5</ion-text>
+        </ion-item>
+        <ion-item class="underlineSpan" lines="none">
+          <ion-text class="rating">{{ rating.data().message }}</ion-text>
+        </ion-item>
+      </span>
+    </ion-card>
+  </ion-card>
+  <div class="extendBot"></div>
+</ion-content>

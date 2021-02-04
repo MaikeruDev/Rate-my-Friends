@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title color="primary" class="ion-text-center">
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-title class="stonks">Search People</ion-title>
+    <ion-item>
+      <ion-label position="stacked">Username + Tag</ion-label>
+      <ion-input placeholder="JohnDoe#6969"></ion-input>
+    </ion-item>
+    <ion-button class="searchBtn" fill="">Search<ion-icon name="search-outline" slot="start"></ion-icon></ion-button>
+  </ion-card>
+  <ion-card>
+    <ion-title class="stonks">Your Rating</ion-title>
+    <ion-item>
+      <ion-text class="rating">Rating:</ion-text>
+      <ion-text class="rating" id="ratingNumbers"> <span id="userRating">3.68</span> / 5</ion-text>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+    <ion-title class="stonks">Your most popular Friend</ion-title>
+    <ion-item>
+      <ion-text class="rating"> <span id="userRating">Soos</span>#6578</ion-text>
+    </ion-item>
+  </ion-card>
+</ion-content>

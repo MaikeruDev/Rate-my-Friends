@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-button color="light" (click)="backToProfile()">
+              <ion-icon name="arrow-back"></ion-icon>
+          </ion-button>
+      </ion-buttons>
+      <ion-title color="primary" class="ion-text-center">Settings</ion-title> 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="outerCard">
+    <ion-avatar class="avatarPrev">
+      <img src="{{ profilePic }}">
+    </ion-avatar>
+  </ion-card>
+  <ion-card>
+    <ion-radio-group [(ngModel)]="picSelect">
+      <ion-item lines="none">
+        <ion-avatar>
+          <img src="https://firebasestorage.googleapis.com/v0/b/rate-my-friends.appspot.com/o/1.jpg?alt=media&token=afb0a426-e959-4313-85e4-b78b7db31b13">
+        </ion-avatar>
+        <ion-radio value="1"></ion-radio>
+        
+        <ion-avatar>
+          <img src="https://firebasestorage.googleapis.com/v0/b/rate-my-friends.appspot.com/o/2.jpg?alt=media&token=afb0a426-e959-4313-85e4-b78b7db31b13">
+        </ion-avatar>
+        <ion-radio value="2"></ion-radio>
+
+        <ion-avatar>
+          <img src="https://firebasestorage.googleapis.com/v0/b/rate-my-friends.appspot.com/o/3.jpg?alt=media&token=afb0a426-e959-4313-85e4-b78b7db31b13">
+        </ion-avatar>
+        <ion-radio value="3"></ion-radio>
+
+        <ion-avatar>
+          <img src="https://firebasestorage.googleapis.com/v0/b/rate-my-friends.appspot.com/o/4.jpg?alt=media&token=afb0a426-e959-4313-85e4-b78b7db31b13">
+        </ion-avatar>
+        <ion-radio value="4"></ion-radio>
+
+      </ion-item>
+      <ion-item>
+        <ion-avatar>
+          <img src="https://firebasestorage.googleapis.com/v0/b/rate-my-friends.appspot.com/o/5.jpg?alt=media&token=afb0a426-e959-4313-85e4-b78b7db31b13">
+        </ion-avatar>
+        <ion-radio value="5"></ion-radio>
+
+        <ion-avatar>
+          <img src="https://firebasestorage.googleapis.com/v0/b/rate-my-friends.appspot.com/o/6.jpg?alt=media&token=afb0a426-e959-4313-85e4-b78b7db31b13">
+        </ion-avatar>
+        <ion-radio value="6"></ion-radio>
+
+        <ion-avatar>
+          <img src="https://firebasestorage.googleapis.com/v0/b/rate-my-friends.appspot.com/o/7.jpg?alt=media&token=afb0a426-e959-4313-85e4-b78b7db31b13">
+        </ion-avatar>
+        <ion-radio value="7"></ion-radio>
+
+        <ion-avatar>
+          <img src="https://firebasestorage.googleapis.com/v0/b/rate-my-friends.appspot.com/o/8.jpg?alt=media&token=afb0a426-e959-4313-85e4-b78b7db31b13">
+        </ion-avatar>
+        <ion-radio value="8"></ion-radio>
+
+      </ion-item>
+    </ion-radio-group>
+  </ion-card>
+  <ion-card>
+    <ion-button (click)="saveChanges()" class="logOut" color="success">Save Changes<ion-icon slot="end" name="checkmark-outline"></ion-icon></ion-button>
+  </ion-card>
+  <ion-card>
+    <ion-button (click)="signOut()" fill="outline" class="logOut" color="danger">Sign Out<ion-icon slot="end" name="log-out-outline"></ion-icon></ion-button>
+  </ion-card>
+</ion-content>

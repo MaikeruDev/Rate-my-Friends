@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title color="primary" class="ion-text-center">
+      Scoreboard
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-list>
+      <span *ngFor="let friend of friends; let i = index" [attr.data-index]="i" (click)="friendModal(friend.data().name, friend.data().id, friend.id)"m>
+        <ion-item lines="none">
+          <ion-text class="friendNum"><span class="numColorG">#{{ i + 1 }}</span></ion-text>
+          <ion-text class="friendName"><span class="nameColor">{{ friend.data().name }}</span>#{{ friend.data().id }}</ion-text>
+        </ion-item>
+        <ion-item class="item2">
+          <ion-text class="ratingFef"><span class="nameColor">{{ friend.data().averageRating | number : '1.2-2'}}</span> / 5</ion-text>
+        </ion-item>
+      </span>
+    </ion-list>
+  </ion-card>
+</ion-content>

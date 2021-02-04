@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
+ion-title{
+    font-family: 'Space Mono', monospace;
+}
+
+img{
+    margin-top: 25%;
+}
+
+ion-avatar{
+    margin: auto
+}
+
+.backBtn{
+    position: absolute;
+}
+
+.rateFriend{
+    margin-left: auto;
+}
+
+.username{
+    margin-top: 7%;
+    color: #eed651;
+}
+
+ion-row{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+.statsTitle{
+    font-size: 4.5vw;
+    padding-left: 3%;
+    padding-top: 1%;
+    --border-bottom: 5px grey;
+}
+
+.rating{
+    color: grey;
+    font-family: 'Space Mono', monospace;
+    font-size: 4vw;
+}
+
+#ratingNumbers{
+    padding-left: 2%;
+}
+
+#userRating{
+    color: #eed651;
+}
+
+.ratingName{
+    font-weight: bold;
+}
+
+.underlineSpan{
+    border-bottom: 1px solid rgb(66, 66, 66);
+    padding-bottom: 3%;
+}
+
+ion-card{
+    padding-bottom: 5%;
+}
+
+.extendBot{
+    padding-bottom: 15vw;
+}
+
+.loginBtn{
+    position: absolute;
+    top: 10%;
+    right: 2%;
+}
+

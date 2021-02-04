@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
+ion-title{
+    font-family: 'Space Mono', monospace;
+}
+
+.friendName{
+    padding-left: 3%;
+}
+
+.loginBtn{
+    position: absolute;
+    top: 10%;
+    right: 2%;
+}
+
+.removeBtn{
+    position: absolute;
+    right: 2%;
+}
+
+.nameColor{
+    color: #eed651;
+}
+
+ion-text{
+    font-family: 'Space Mono', monospace;
+}
+
+.acceptBtn{
+    position: absolute;
+    right: 14%;
+}
+
+.declineBtn{
+    position: absolute;
+    right: 2%;
+}

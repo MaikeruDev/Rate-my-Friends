@@ -1,0 +1,7 @@
+{
+  "name": "Rate my Friends",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

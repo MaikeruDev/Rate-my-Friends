@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons class="backBtn" slot="start">
+      <ion-button color="light" (click)="closeModal()">
+          <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+  </ion-buttons>
+    <ion-title class="ion-text-center" color="primary">
+      Profile
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-avatar>
+      <img src="{{ profilePic }}">
+    </ion-avatar>
+    <ion-title class="ion-text-center username">{{ friendName }}#{{ friendId }}</ion-title>
+    <ion-list style="text-align:center">
+      <ion-button class="rateFriend" (click)="openRating()" *ngIf="showRatingBtn">Rate your friend</ion-button>
+      <ion-text class="ion-text-center" *ngIf="!showRatingBtn">Add each other, to rate {{ friendName }}</ion-text>
+    </ion-list>
+    <ion-card>
+      <ion-title class="statsTitle">Statistics</ion-title>
+      <ion-item>
+        <ion-text class="rating">Rating:</ion-text>
+        <ion-text class="rating" id="ratingNumbers"> <span id="userRating">{{ ratingAvgFinal | number : '1.2-2'}}</span> / 5</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-text class="rating">Friends:</ion-text>
+        <ion-text class="rating" id="ratingNumbers"> <span id="userRating">{{ size }}</span></ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-text class="rating">Joined:</ion-text>
+        <ion-text class="rating" id="ratingNumbers"><span id="userRating">{{joined | date:'mediumDate'}}</span></ion-text>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-title class="statsTitle">Ratings</ion-title>
+      <span *ngFor="let rating of ratings">
+        <ion-item lines="none">
+          <ion-text class="rating ratingName" *ngIf="rating.anon == false">{{ rating.name }}#{{ rating.id }}:</ion-text>
+          <ion-text class="rating ratingName" *ngIf="rating.anon == true">Anonymous:</ion-text>
+          <ion-text class="rating" id="ratingNumbers"> <span id="userRating">{{ rating.rated | number : '1.2-2'}}</span> / 5</ion-text>
+        </ion-item>
+        <ion-item class="underlineSpan" lines="none">
+          <ion-text class="rating">{{ rating.message }}</ion-text>
+        </ion-item>
+      </span>
+    </ion-card>
+  </ion-card>
+  <div class="extendBot"></div>
+</ion-content>

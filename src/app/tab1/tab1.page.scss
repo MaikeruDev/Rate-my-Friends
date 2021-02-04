@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
+ion-title{
+    font-family: 'Space Mono', monospace;
+}
+
+.stonks{
+    color: #eed651;
+    font-family: 'Space Mono', monospace;
+    font-size: 5vw;
+    padding-left: 2%;
+}
+
+.searchBtn{
+    width: 99%;
+}
+
+#ratingNumbers{
+    padding-left: 2%;
+}
+
+#userRating{
+    color: #eed651;
+}
+
+ion-card{
+    width: 85%;
+    display:block;
+    margin: 0 auto;
+    margin-top: 5%;
+}
