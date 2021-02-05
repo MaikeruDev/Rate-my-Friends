@@ -38,14 +38,14 @@
     </ion-card>
     <ion-card>
       <ion-title class="statsTitle">Ratings</ion-title>
-      <span *ngFor="let rating of ratings">
+      <span *ngFor="let rating of ratings" (click)="friendModal(rating.data().name, rating.data().id, rating.id)">
         <ion-item lines="none">
-          <ion-text class="rating ratingName" *ngIf="rating.anon == false">{{ rating.name }}#{{ rating.id }}:</ion-text>
-          <ion-text class="rating ratingName" *ngIf="rating.anon == true">Anonymous:</ion-text>
-          <ion-text class="rating" id="ratingNumbers"> <span id="userRating">{{ rating.rated | number : '1.2-2'}}</span> / 5</ion-text>
+          <ion-text class="rating ratingName" *ngIf="rating.data().anon == false">{{ rating.data().name }}#{{ rating.data().id }}:</ion-text>
+          <ion-text class="rating ratingName" *ngIf="rating.data().anon == true">Anonymous:</ion-text>
+          <ion-text class="rating" id="ratingNumbers"> <span id="userRating">{{ rating.data().rated | number : '1.2-2'}}</span> / 5</ion-text>
         </ion-item>
         <ion-item class="underlineSpan" lines="none">
-          <ion-text class="rating">{{ rating.message }}</ion-text>
+          <ion-text class="rating">{{ rating.data().message }}</ion-text>
         </ion-item>
       </span>
     </ion-card>

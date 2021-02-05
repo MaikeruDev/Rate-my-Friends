@@ -56,6 +56,25 @@ export class ProfileFriendPage implements OnInit {
     await this.modalController.dismiss(onClosedData);
   }
 
+  async friendModal(username: any, id: any, email: any){
+
+    var fname = username;
+    var fid = id;
+    var femail = email;
+
+    const modal = await this.modalController.create({
+      component: ProfileFriendPage,
+      componentProps: {
+        friendName: fname,
+        friendId: fid,
+        friendMail: femail
+      }
+    });
+
+    //this.deleteEntry(entry);
+    return await modal.present();
+  }
+
   async getData(){
     this.afAuth.authState.subscribe(async user=>{
       
@@ -88,7 +107,7 @@ export class ProfileFriendPage implements OnInit {
             this.ratingAvg = 0;
             this.ratingAvgCounter = 0;
         querySnapshot.forEach(async (doc: any) => {
-            this.ratings.push(doc.data());
+            this.ratings.push(doc);
             this.ratingAvg += doc.data().rated;
             this.ratingAvgCounter++;
         });
