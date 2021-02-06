@@ -9,16 +9,25 @@
 
 <ion-content [fullscreen]="true">
   <ion-list>
-    <ion-item *ngFor="let reqFriend of reqFriends">
+    <ion-item *ngFor="let reqFriend of reqFriends; let i = index" [attr.data-index]="i">
+      <ion-avatar>
+        <img src="{{ reqFriendsPb[i] }}" />
+      </ion-avatar>
       <ion-text (click)="friendModal(reqFriend.data().name, reqFriend.data().id, reqFriend.id)" class="friendName"><span class="nameColor">{{ reqFriend.data().name }}</span>#{{ reqFriend.data().id }}</ion-text>
       <ion-button (click)="acceptFriend(reqFriend)" color="success" fill="outline" class="acceptBtn"><ion-icon name="checkmark-outline"></ion-icon></ion-button>
       <ion-button (click)="removeFriend(reqFriend)" color="danger" fill="outline" class="declineBtn"><ion-icon name="close-outline"></ion-icon></ion-button>
     </ion-item>
-    <ion-item *ngFor="let sentFriend of sentFriends">
+    <ion-item *ngFor="let sentFriend of sentFriends; let i = index" [attr.data-index]="i">
+      <ion-avatar>
+        <img src="{{ sentFriendsPb[i] }}" />
+      </ion-avatar>
       <ion-text (click)="friendModal(sentFriend.data().name, sentFriend.data().id, sentFriend.id)" class="friendName"><span class="nameColor">{{ sentFriend.data().name }}</span>#{{ sentFriend.data().id }}</ion-text>
       <ion-button color="medium" (click)="presentAlert(sentFriend.data().name)" fill="outline" class="removeBtn"><ion-icon name="time-outline"></ion-icon></ion-button>
     </ion-item>
-    <ion-item *ngFor="let safeFriend of safeFriends">
+    <ion-item *ngFor="let safeFriend of safeFriends; let i = index" [attr.data-index]="i">
+      <ion-avatar>
+        <img src="{{ safeFriendsPb[i] }}" />
+      </ion-avatar>
       <ion-text (click)="friendModal(safeFriend.data().name, safeFriend.data().id, safeFriend.id)" class="friendName"><span class="nameColor">{{ safeFriend.data().name }}</span>#{{ safeFriend.data().id }}</ion-text>
       <ion-button (click)="removeFriend(safeFriend)" color="danger" fill="outline" class="removeBtn"><ion-icon name="person-remove-outline"></ion-icon></ion-button>
     </ion-item>

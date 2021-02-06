@@ -21,8 +21,11 @@ export class Tab2Page implements OnInit {
   constructor(public alertController: AlertController, private modalController: ModalController, public afAuth: AngularFireAuth, public db: AngularFirestore) {}
 
   safeFriends: any[] = [];
+  safeFriendsPb: any[] = [];
   sentFriends: any[] = [];
+  sentFriendsPb: any[] = [];
   reqFriends: any[] = [];
+  reqFriendsPb: any[] = [];
 
   async ngOnInit(){
     this.afAuth.authState.subscribe(async user=>{
@@ -33,12 +36,21 @@ export class Tab2Page implements OnInit {
         snap.forEach(async (doc: any) => {
           if(doc.data().addedBack == true){
             this.safeFriends.push(doc);
+            this.db.collection('IDs/').doc(doc.id).ref.onSnapshot(async (snap: any) => {
+              this.safeFriendsPb.push(snap.data().profilePic)
+            })
           }
           else if(doc.data().accepted == false){
             this.sentFriends.push(doc);
+            this.db.collection('IDs/').doc(doc.id).ref.onSnapshot(async (snap: any) => {
+              this.sentFriendsPb.push(snap.data().profilePic)
+            })
           }
           else{
             this.reqFriends.push(doc);
+            this.db.collection('IDs/').doc(doc.id).ref.onSnapshot(async (snap: any) => {
+              this.reqFriendsPb.push(snap.data().profilePic)
+            })
           }
         });
       });
